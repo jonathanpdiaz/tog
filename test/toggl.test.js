@@ -101,7 +101,7 @@ describe('Toggl', function () {
         })
     })
 
-    describe.only('Reports', function () {
+    describe('Reports', function () {
         beforeEach(async function () {
             const { data: { workspaces } } = await this.toggl.apiRequest({ path: '/me' })
             const { id: workspaceId } = workspaces[0]
