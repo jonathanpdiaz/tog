@@ -1,7 +1,4 @@
-# toggler
-Modern Toggl API wrapper and Timer.
-
-## Purpose
+## Modern Toggl API wrapper and Timer.
 This package wraps the Toggl API with a promised based approach. This makes the usage of async/await straight forward.
 
 It also has timer functionality build in to easily start, stop and update the a time entry.
@@ -11,14 +8,14 @@ This package requires node 8 or higher, because of async/await usage.
 
 ## Installation
 ```
-npm install toggler
+npm install tog
 ```
 
 ## Usage
 
 ### Initialisation
 ```javascript
-import { Toggl } from 'toggler'
+import { Toggl } from 'tog'
 
 // Using your API token
 const toggl = new Toggl({ apiToken: 'YOUR_API_TOKEN' })

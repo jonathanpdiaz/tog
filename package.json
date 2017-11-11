@@ -1,5 +1,5 @@
 {
-  "name": "toggler",
+  "name": "tog",
   "version": "0.0.1",
   "description": "Modern Toggl API wrapper and Timer",
   "main": "index.js",
@@ -18,9 +18,9 @@
   "author": "Michiel ter Reehorst",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jamiter/toggler/issues"
+    "url": "https://github.com/jamiter/tog/issues"
   },
-  "homepage": "https://github.com/jamiter/toggler#readme",
+  "homepage": "https://github.com/jamiter/tog#readme",
   "devDependencies": {
     "chai": "^4.1.2",
     "eslint": "^4.10.0",
