@@ -3,6 +3,8 @@ This package wraps the Toggl API with a promised based approach. This makes the 
 
 It also has timer functionality build in to easily start, stop and update the a time entry.
 
+[![Build Status](https://travis-ci.org/jamiter/tog.svg?branch=master)](https://travis-ci.org/jamiter/tog)
+
 ## Requirements
 This package requires node 8 or higher, because of async/await usage.
 
