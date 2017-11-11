@@ -1,0 +1,37 @@
+{
+  "name": "toggler",
+  "version": "0.0.1",
+  "description": "Modern Toggl API wrapper and Timer",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamiter/toggler.git"
+  },
+  "keywords": [
+    "toggl",
+    "timer",
+    "api"
+  ],
+  "author": "Michiel ter Reehorst",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jamiter/toggler/issues"
+  },
+  "homepage": "https://github.com/jamiter/toggler#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^4.10.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "mocha": "^4.0.1"
+  },
+  "dependencies": {
+    "request": "^2.83.0"
+  }
+}
