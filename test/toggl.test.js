@@ -1,4 +1,4 @@
-/* eslint-disable func-names, prefer-arrow-callback */
+/* eslint-disable func-names, prefer-arrow-callback, camelcase */
 /* eslint-env node, mocha */
 const { expect } = require('chai')
 const { Toggl, Timer } = require('../index')
