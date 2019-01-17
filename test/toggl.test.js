@@ -115,19 +115,16 @@ describe('Toggl', function () {
 
         it('returns a weekly report', async function () {
             const {
-                total_grand,
                 data: entries,
             } = await this.toggl.getWeeklyReport({
                 workspace_id: this.wid,
             })
 
-            expect(total_grand).to.be.a('number')
             expect(entries).to.be.an('array')
         })
 
         it('returns a detailed report', async function () {
             const {
-                total_grand,
                 total_count,
                 per_page,
                 data: entries,
@@ -135,7 +132,6 @@ describe('Toggl', function () {
                 workspace_id: this.wid,
             })
 
-            expect(total_grand).to.be.a('number')
             expect(total_count).to.be.a('number')
             expect(per_page).to.be.a('number')
             expect(entries).to.be.an('array')
@@ -143,16 +139,18 @@ describe('Toggl', function () {
 
         it('returns a summary report', async function () {
             const {
-                total_grand,
-                data,
+                data: entries,
             } = await this.toggl.getSummaryReport({
                 workspace_id: this.wid,
                 grouping: 'projects',
             })
 
-            expect(total_grand).to.be.a('number')
-            expect(data[0].title.project).to.be.a('string')
-            expect(data[0].items[0].time).to.be.a('number')
+            expect(entries).to.be.an('array')
+
+            if (entries[0]) {
+                expect(entries[0].title.project).to.be.a('string')
+                expect(entries[0].items[0].time).to.be.a('number')
+            }
         })
     })
 })
