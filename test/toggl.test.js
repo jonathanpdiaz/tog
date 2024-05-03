@@ -83,21 +83,21 @@ describe('Toggl', function () {
             const originalName = 'TEST_CLIENT'
             const updatedName = 'UPDATED_TEST_CLIENT'
 
-            const { data: client } = await this.toggl.createClient({
+            const { data: client } = await this.toggl.createClient(wid, {
                 wid,
                 name: originalName,
             })
 
             expect(client.name).to.equal(originalName)
 
-            const { data: updatedClient } = await this.toggl.updateClient(client.id, {
+            const { data: updatedClient } = await this.toggl.updateClient(wid, client.id, {
                 wid,
                 name: updatedName,
             })
 
             expect(updatedClient.name).to.equal(updatedName)
 
-            await this.toggl.deleteClient(client.id)
+            await this.toggl.deleteClient(wid, client.id)
         })
     })
 

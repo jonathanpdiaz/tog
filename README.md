@@ -31,7 +31,7 @@ const toggl = new Toggl({
 
 ### Getting data
 ```javascript
-const { data: clients } = await toggl.getClients()
+const { data: clients } = await toggl.getClients(workspaceId)
 ```
 
 ### Using a timer
