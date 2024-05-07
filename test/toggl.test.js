@@ -18,7 +18,7 @@ describe('Toggl', function () {
     })
 
     it('should return stuff about me', async function () {
-        const { data } = await this.toggl.apiRequest({
+        const data = await this.toggl.apiRequest({
             path: '/me',
         })
 
@@ -71,40 +71,41 @@ describe('Toggl', function () {
 
     describe('Clients', function () {
         it('returns a list of clients', async function () {
-            const [client1] = await this.toggl.getClients()
+            const data = await this.toggl.getClients()
 
-            expect(client1.id).to.be.a('number')
+            expect(data).to.be.an('array')
+            expect(data[0].id).to.be.a('number')
         })
 
         it('CRUD', async function () {
-            const { data: { workspaces } } = await this.toggl.apiRequest({ path: '/me' })
-            const { id: wid } = workspaces[0]
+            const data = await this.toggl.apiRequest({ path: '/me' })
+            const wid = data.default_workspace_id
 
             const originalName = 'TEST_CLIENT'
             const updatedName = 'UPDATED_TEST_CLIENT'
 
-            const { data: client } = await this.toggl.createClient({
+            const client = await this.toggl.createClient(wid, {
                 wid,
                 name: originalName,
             })
 
             expect(client.name).to.equal(originalName)
 
-            const { data: updatedClient } = await this.toggl.updateClient(client.id, {
+            const updatedClient = await this.toggl.updateClient(wid, client.id, {
                 wid,
                 name: updatedName,
             })
 
             expect(updatedClient.name).to.equal(updatedName)
 
-            await this.toggl.deleteClient(client.id)
+            await this.toggl.deleteClient(wid, client.id)
         })
     })
 
     describe('Reports', function () {
         beforeEach(async function () {
-            const { data: { workspaces } } = await this.toggl.apiRequest({ path: '/me' })
-            const { id: workspaceId } = workspaces[0]
+            const data = await this.toggl.apiRequest({ path: '/me' })
+            const workspaceId = data.default_workspace_id
 
             this.wid = workspaceId
         })
